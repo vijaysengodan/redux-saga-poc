@@ -5,7 +5,18 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
-
+  workflow_dispatch:
+    inputs:
+       product:
+        type: choice
+        options: [productA, productB]
+       application:
+        required: true
+       environment:
+        type: choice
+        options: [dev, qa, prod]
+       region:
+        required: false
 jobs:
   build:
     runs-on: ubuntu-latest
